@@ -293,10 +293,10 @@ export function ControlPanel(props: controlPanelProps) {
         <div>
             <div id={styles.btnGroup} className={props.menuOpened ? "border-t border-white" : ""}>
                 <div>
-                    <button type="button" id="launchButton" onClick={() => {launch(set_launched)}} className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-semibold rounded-lg px-5 py-2 text-center me-2 mb-2">발사</button>
                     <button type="button" id="resetButton" onClick={() => {
                         reset(set_launched)
                     }} className="text-red-700 border border-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-semibold rounded-lg px-5 py-2 text-center me-2 mb-2 cursor-not-allowed">초기화</button>
+                    <button type="button" id="launchButton" onClick={() => {launch(set_launched)}} className="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-semibold rounded-lg px-5 py-2 text-center me-2 mb-2">발사</button>
                 </div>
             </div>
             <div id={styles.timePanel}>

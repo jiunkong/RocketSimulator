@@ -11,8 +11,7 @@
     margin-top: 14px;
     margin-bottom: 8px;
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    flex-direction: row-reverse;
 }
 
 #timePanel {
