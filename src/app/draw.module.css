@@ -1,0 +1,42 @@
+#btnGroup {
+    width: 20%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+}
+
+#btnGroup > div {
+    margin: 10px;
+    margin-top: 14px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#timePanel {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    font-size: 1.3rem;
+}
+
+#timePanel > button {
+    margin-left: 10px;
+    font-size: 1.3rem;
+}
+
+#scalePanel {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 1.3rem;
+}
+
+#statePanel {
+    position: absolute;
+    left: 10px;
+    top: 100px;
+    
+}

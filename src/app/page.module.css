@@ -1,0 +1,61 @@
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.canvas {
+    width: 100vw;
+}
+
+.canvas > canvas {
+    width: 100vw;
+    height: 100vh;
+}
+
+.setting::-webkit-scrollbar {
+    display: none;
+}
+
+.setting {
+    -ms-overflow-style: none; /* IE */
+    scrollbar-width: none; /* FireFox */
+    width: 20%;
+    position: absolute;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    border-left: 1px solid white;
+    overflow-y: scroll;
+    background-color: black;
+}
+
+.settingGroup {
+    margin: 20px;
+    margin-bottom: 30px;
+}
+
+.settingGroup > div {
+    margin-bottom: 5px;
+}
+
+.settingGroup > :first-child {
+    font-weight: 700;
+    font-size: 2rem;
+    padding-bottom: 3px;
+}
+
+.settingElement > :first-child {
+    margin-right: 10px;
+}
+
+.settingElement > :last-child {
+    margin-left: 3px;
+}
+
+#toggleButton {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 2rem;
+}
