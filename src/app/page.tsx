@@ -28,7 +28,7 @@ export default function Page() {
           </div>
           <div className={styles.settingElement}>
             <span>연료 효율</span>
-            <input type="number" id="fuel_efficiency" defaultValue={39} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-28 focus:ring-blue-500 focus:border-blue-500 inline-block p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required min={0}></input>
+            <input type="number" id="fuel_efficiency" defaultValue={40} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-28 focus:ring-blue-500 focus:border-blue-500 inline-block p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required min={0}></input>
             <span>N/kg</span>
           </div>
           <div className={styles.settingElement}>
