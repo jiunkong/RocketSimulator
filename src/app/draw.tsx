@@ -107,15 +107,23 @@ let isStarted = false
 function start() {
     if (!isStarted) {
         isStarted = true
-        tick()
+        window.requestAnimationFrame(pretick)
     }
+}
+
+function pretick() {
+    const timestamp = new Date().getTime()
+    window.requestAnimationFrame(() => {
+        tick(timestamp)
+    })
 }
 
 let set_vx: Function | null
 let set_vy: Function | null
 let set_x: Function | null
 let set_y: Function | null
-function tick() {
+function tick(ptimestamp: number) {
+    BASE_TIME = (new Date().getTime() - ptimestamp) / 1000
     const ctx = (document.getElementById("viewport") as HTMLCanvasElement).getContext("2d")
     if (!ctx) return;
 
@@ -125,7 +133,6 @@ function tick() {
     // draw planet
     if (EarthImage) {
         drawImage(ctx, EarthImage, 0, 0, RADIUS_EARTH * 2, RADIUS_EARTH * 2)
-        //ctx.drawImage(EarthImage, pos.x, pos.y, pos.w, pos.h)
     }
 
     // update rocket state
@@ -158,8 +165,6 @@ function tick() {
                     rocketAngle = Math.atan(rocketVy / rocketVx)
                 }
                 
-                //console.log('c', f * Math.cos(rocketAngle), f * Math.sin(rocketAngle))
-                
                 rocketVx += f * Math.cos(rocketAngle)
                 rocketVy += f * Math.sin(rocketAngle)
                 
@@ -187,7 +192,10 @@ function tick() {
         //ctx.fillRect(pos.x, pos.y, pos.w, pos.h)
     }
 
-    window.requestAnimationFrame(tick)
+    const timestamp = new Date().getTime()
+    window.requestAnimationFrame(() => {
+        tick(timestamp)
+    })
 }
 
 function rocketInit() {
@@ -207,19 +215,6 @@ function rocketInit() {
     fuelConsumption = (document.getElementById('fuel_consumption') as HTMLInputElement).valueAsNumber
 
     planetMass = (document.getElementById('planet_mass') as HTMLInputElement).valueAsNumber
-}
-
-function calcFramerate(cnt: number, ptimestamp: number, intervals: number) {
-    if (cnt <= 10) {
-        const timestamp = new Date().getTime()
-        intervals += timestamp - ptimestamp
-        window.requestAnimationFrame(() => {
-            calcFramerate(cnt + 1, timestamp, intervals)
-        })
-    } else {
-        BASE_TIME = (intervals / 10) / 1000
-        console.log(BASE_TIME)
-    }
 }
 
 interface controlPanelProps {
@@ -246,7 +241,6 @@ export function ControlPanel(props: controlPanelProps) {
         document.getElementById('launch_angle')?.addEventListener('change', (event) => { rocketAngle = toRad((event.target as HTMLInputElement).valueAsNumber) })
         
         rocketInit()
-        calcFramerate(0, new Date().getTime(), 0)
 
         EarthImage = new Image()
         EarthImage.src = 'earth.png'
